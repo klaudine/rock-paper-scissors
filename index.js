@@ -1,3 +1,7 @@
+/* eslint-disable */
+
+import "./style.css";
+
 function getUserChoice(userInput) {
   userInput = userInput.toLowerCase();
 
@@ -7,6 +11,8 @@ function getUserChoice(userInput) {
     console.log("User chose rock");
   } else if (userInput === "scissors") {
     console.log("User chose scissors");
+  } else if (userInput === "bomb") {
+    return "The user won!";
   } else {
     console.log("Choose again");
   }
@@ -30,27 +36,22 @@ function getComputerChoice() {
 // getComputerChoice(play);
 
 function determineWinner(userChoice, computerChoice) {
-  if ((userChoice = computerChoice)) {
-    console.log("it's a tie");
-  } else if (userChoice === "rock") {
-    if (computerChoice === "paper") {
-      console.log("The computer won!");
-    } else {
-      console.log("The user won!");
-    }
-  } else if (userChoice === "paper") {
-    if (computerChoice === "scissors") {
-      console.log("The computer won!");
-    } else {
-      console.log("The user won!");
-    }
-  } else if (userChoice === "scissors") {
-    if (computerChoice === "rock") {
-      console.log("The computer won!");
-    } else {
-      console.log("The user won!");
-    }
+  if (userChoice === "rock" && computerChoice === "paper")
+    console.log("The computer won!");
+  if (userChoice === "rock" && computerChoice === "scissors")
+    console.log("The user won!");
+  if (userChoice === "paper" && computerChoice === "rock")
+    console.log("The user won!");
+  if (userChoice === "paper" && computerChoice === "scissors")
+    console.log("The computer won!");
+  if (userChoice === "scissors" && computerChoice === "rock")
+    console.log("The computer won!");
+  if (userChoice === "scissors" && computerChoice === "paper")
+    console.log("The user won!");
+  if (userChoice === "bomb") {
+    return;
   }
+  if (userChoice == computerChoice) console.log("It's a tie");
 }
 
 function playGame() {
